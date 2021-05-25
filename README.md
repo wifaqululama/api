@@ -1,4 +1,4 @@
-# Wifaqul Ulama Web API 2.0 
+# Wifaqul Ulama Web API
 A Static Web API
 
 ## This API will provide the following:
