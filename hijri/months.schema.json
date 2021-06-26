@@ -1,0 +1,99 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "years": [
+                {
+                    "year": 1442,
+                    "month_data": "0x55A",
+                    "start_date_gregorian": "20/08/2020"
+                }
+            ]
+        }
+    ],
+    "required": [
+        "years"
+    ],
+    "properties": {
+        "years": {
+            "$id": "#/properties/years",
+            "type": "array",
+            "title": "The years schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "year": 1442,
+                        "month_data": "0x55A",
+                        "start_date_gregorian": "20/08/2020"
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/years/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/years/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "year": 1442,
+                                "month_data": "0x55A",
+                                "start_date_gregorian": "20/08/2020"
+                            }
+                        ],
+                        "required": [
+                            "year",
+                            "month_data",
+                            "start_date_gregorian"
+                        ],
+                        "properties": {
+                            "year": {
+                                "$id": "#/properties/years/items/anyOf/0/properties/year",
+                                "type": "integer",
+                                "title": "The Hijri Year",
+                                "description": "The Hijri year.",
+                                "default": 0,
+                                "examples": [
+                                    1442
+                                ]
+                            },
+                            "month_data": {
+                                "$id": "#/properties/years/items/anyOf/0/properties/month_data",
+                                "type": "string",
+                                "title": "The months in bitmap format.",
+                                "description": "Each bit turned on represents 30 days and a bit switched off represents 29 days.",
+                                "default": "",
+                                "examples": [
+                                    "0x55A"
+                                ]
+                            },
+                            "start_date_gregorian": {
+                                "$id": "#/properties/years/items/anyOf/0/properties/start_date_gregorian",
+                                "type": "string",
+                                "title": "The Start Date in ISO 8601 Format ",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "2020/08/20"
+                                ]
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                ]
+            }
+        }
+    },
+    "additionalProperties": true
+}
